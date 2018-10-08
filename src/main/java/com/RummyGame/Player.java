@@ -1,4 +1,4 @@
-package com.RummyGame;
+package com.rummyGame;
 
 public class Player 
 {
@@ -25,6 +25,56 @@ public class Player
 	{
 		this.tiles[this.numOfTiles]=newTiles;
 		this.numOfTiles=this.numOfTiles+1;
+	}
+	
+	public void TilesAscendingOrderByNumber()
+	{
+		Tiles temp;
+		
+		for(int i=0;i<this.numOfTiles;i++)
+		{
+			for(int j=i+1;j<this.numOfTiles;j++)
+			{
+				if(this.tiles[i].theNumberOfTiles()>this.tiles[j].theNumberOfTiles())
+				{
+					temp=this.tiles[i];
+					this.tiles[i]=this.tiles[j];
+					this.tiles[j]=temp;
+				}
+			}
+		}
+	}
+	
+	public void TilesAscesndingOrderByColor()
+	{
+		Tiles temp;
+		for(int i=0;i<this.numOfTiles;i++)
+		{
+			for(int j=i+1;j<this.numOfTiles;j++)
+			{
+				if(this.tiles[i].ColorNumber()>this.tiles[j].ColorNumber())
+				{
+					temp=this.tiles[i];
+					this.tiles[i]=this.tiles[j];
+					this.tiles[j]=temp;
+				}
+			}
+		}
+		
+		for(int i=0;i<this.numOfTiles;i++)
+		{
+			for(int j=i+1;j<this.numOfTiles;j++)
+			{
+				if((this.tiles[i].theNumberOfTiles()>this.tiles[j].theNumberOfTiles())
+						&& (this.tiles[i].ColorNumber()==this.tiles[j].ColorNumber()))
+				{
+					temp=this.tiles[i];
+					this.tiles[i]=this.tiles[j];
+					this.tiles[j]=temp;
+				}
+			}
+		}
+		
 	}
 	
 	public void printTiles()

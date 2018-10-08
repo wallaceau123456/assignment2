@@ -1,4 +1,4 @@
-package com.RummyGame;
+package com.rummyGame;
 
 public class Tiles 
 {
@@ -25,6 +25,32 @@ public class Tiles
 	  return NumberOfTiles;
   }
   
+  public TilesColor theColor()
+  {
+	  return theColor;
+  }
+  
+  public int ColorNumber()
+  {
+	  int colorNumber = 0;
+	  if(this.theColor.toString().equals("Red"))
+	  {
+		  colorNumber=1;
+	  }
+	  if(this.theColor.toString().equals("Green"))
+	  {
+		  colorNumber=2;
+	  }
+	  if(this.theColor.toString().equals("Blue"))
+	  {
+		  colorNumber=3;
+	  }
+	  if(this.theColor.toString().equals("Orange"))
+	  {
+		  colorNumber=4;
+	  }
+	  return colorNumber;
+  }
   public String toString()
   {
 	   String StringOfNumber = null;
@@ -88,7 +114,7 @@ public class Tiles
 		   StringOfNumber= "13";
 	   }
 	  
-	   return StringOfNumber + " " + theColor.toString();
+	   return StringOfNumber + " " + theColor.toString() + " " ;
 	   
 	   
   }

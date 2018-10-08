@@ -1,4 +1,4 @@
-package com.RummyGame;
+package com.rummyGame;
 
 import java.util.Random;
 
@@ -6,8 +6,7 @@ import java.util.Random;
 
 public class RummyDeck 
 {
-   private static final String ANSI_RED = "\u001B[31m";
-   public static final String ANSI_RESET = "\u001B[0m";
+   
 
 
 private int TileNumber;

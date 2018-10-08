@@ -1,4 +1,4 @@
-package com.RummyGame;
+package com.rummyGame;
 
 public enum TilesColor 
 {
