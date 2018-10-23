@@ -4,6 +4,7 @@ public class Tiles
 {
   private TilesColor theColor;
   private int NumberOfTiles;
+  private String numberString;
   
   public Tiles(TilesColor color, int tiles)
   {
@@ -23,6 +24,11 @@ public class Tiles
   public int theNumberOfTiles()
   {
 	  return NumberOfTiles;
+  }
+  public String theNumber()
+  {
+	  this.numberString= Integer.toString(this.NumberOfTiles);
+	  return numberString;
   }
   
   public TilesColor theColor()
@@ -114,7 +120,7 @@ public class Tiles
 		   StringOfNumber= "13";
 	   }
 	  
-	   return StringOfNumber + " " + theColor.toString() + " " ;
+	   return StringOfNumber + " " + theColor.toString();
 	   
 	   
   }
