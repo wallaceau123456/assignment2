@@ -20,8 +20,10 @@ private int TileNumber;
 	   
 	   int tile=0;
 		for (int d = 0; d < 2; d++) {
-			for (int n = 13; n > 0; n--) {
-				for (int s = 0; s < 4; s++) {
+
+					for (int n = 13; n > 0; n--) {
+						for (int s = 0; s < 4; s++) {
+
 					this.myTiles[tile] = new Tiles(TilesColor.values()[s], n);
 					tile= tile+1;
 				}

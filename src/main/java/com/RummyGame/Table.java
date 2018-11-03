@@ -80,6 +80,15 @@ public class Table
 		}
 		
 	}
+	public void removeTiles(int index)
+	{
+		for(int i=(index+1);i<this.numOfTableMelds;i++)
+		{   
+			this.meld[i-1]=this.meld[i];
+		}
+		this.numOfTableMelds=this.numOfTableMelds-1;
+	}
+
 	public void printTable()
 	{
 		

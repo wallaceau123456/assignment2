@@ -50,6 +50,10 @@ public class Player
 	{
 		return numberCheckMeld;
 	}
+	public int numberCheckMeldPlus1()
+	{
+		return numberCheckMeld= numberCheckMeld+=1;
+	}
 	public void draw(Tiles newTiles)
 	{
 		this.tiles[this.numOfTiles]=newTiles;
@@ -122,6 +126,22 @@ public class Player
 		}
 		
 	}
+	public void MeldsAscendingSortColorNumber()
+	{
+		Tiles temp;
+		for(int i=0;i<this.numberCheckMeld;i++)
+		{
+			for(int j=i+1;j<this.numberCheckMeld;j++)
+			{
+				if(this.checkMeld[i].ColorNumber()>this.checkMeld[j].ColorNumber())
+				{
+					temp=this.checkMeld[i];
+					this.checkMeld[i]=this.checkMeld[j];
+					this.checkMeld[j]=temp;
+				}
+			}
+		}
+	}
 	public void MeldsAscendingOrderByColor()
 	{
 		Tiles temp;
@@ -152,6 +172,23 @@ public class Player
 			}
 		}
 		
+	}
+	public void putSameNumberSameColorTilesInTheBack()
+	{
+		Tiles temp;
+		for(int i=1;i<this.numOfTiles;i++)
+		{
+			if(this.tiles[i-1].theNumberOfTiles()==this.tiles[i].theNumberOfTiles()
+					&& this.tiles[i-1].ColorNumber()==this.tiles[i].ColorNumber())
+			{
+				temp=this.tiles[i-1];
+			    for(int j=i;j<this.numOfTiles;j++)
+			    {
+			    	this.tiles[j-1]=this.tiles[j];
+			    }
+			    this.tiles[this.numOfTiles-1]=temp;
+			}
+		}
 	}
 	
 	public boolean checkIsTilesCorrect(String s,int index)
@@ -597,8 +634,8 @@ public class Player
 			}
 			
 		}
-		if((this.checkMeld[0].theNumberOfTiles()==t.theMeld()[t.numberMelds()].theNumberOfTiles()+1)
-				&& this.checkMeld[0].ColorNumber()==t.theMeld()[t.numberMelds()].ColorNumber())
+		if((this.checkMeld[0].theNumberOfTiles()==t.theMeld()[t.numberMelds()-1].theNumberOfTiles()+1)
+				&& this.checkMeld[0].ColorNumber()==t.theMeld()[t.numberMelds()-1].ColorNumber())
 		{
 			return true;
 		}
@@ -626,6 +663,14 @@ public class Player
 			}
 		}
 	}
+	public void removeItselfTiles(int index)
+	{
+		for(int i=(index+1);i<this.numOfTiles;i++)
+		{   
+			this.tiles[i-1]=this.tiles[i];
+		}
+		this.numOfTiles=this.numOfTiles-1;
+	}
 	public void removeTheTiles()
 	{
 		int currentIndex=0;
@@ -648,6 +693,7 @@ public class Player
 			}
 		}
 	}
+	
 	public void clearTestMeld()
 	{
 		for(int i=1;i<this.numberCheckMeld;i++)
