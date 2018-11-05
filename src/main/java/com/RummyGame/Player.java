@@ -9,6 +9,7 @@ public class Player
 	private int numberCheckMeld;
 	private int countInCheckTilesFunction=0;
 	private int tableIndex=0;
+	private int initial30;
 
 	
 	public Player(String theName)
@@ -32,8 +33,27 @@ public class Player
 	this.numOfTiles=0;
 	this.numberCheckMeld=0;
 	this.countInCheckTilesFunction=0;
+	this.initial30=0;
 	}
 	
+	public int getInitial30()
+	{
+		return initial30;
+	}
+	
+	public int addTilesOnInitial30(int tilesnumber)
+	{
+		return initial30+=tilesnumber;
+	}
+	
+	public int subtractTilesOnInitial30(int tilesnumber)
+	{
+		return initial30-=tilesnumber;
+	}
+	public int initial30ToZero()
+	{
+		return initial30=0;
+	}
 	public int getNumTiles()
 	{
 		return numOfTiles;
@@ -554,6 +574,17 @@ public class Player
 		
 		
 	}
+	public boolean checkTheSameColor(Tiles tiles,Table table)
+	{
+		for(int i=0;i<table.numberMelds();i++)
+		{
+			if(tiles.ColorNumber()==table.theMeld()[i].ColorNumber())
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 	public boolean checkInitial30()
 	{
 		int totalNumber=0;
@@ -661,6 +692,12 @@ public class Player
 				this.tiles[i]=null;
 				this.numOfTiles-=1;
 			}
+		}
+		
+		if(this.tiles[this.numOfTiles-1].toString().equals(t.theMeld()[tableIndex].toString()))
+		{
+			this.tiles[this.numOfTiles-1]=null;
+			this.numOfTiles-=1;
 		}
 	}
 	public void removeItselfTiles(int index)
